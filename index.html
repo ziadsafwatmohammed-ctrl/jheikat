@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Cumpleaños · Para mi querida amiga</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fff5f7 0%, #ffe6eb 100%);
+      font-family: 'Quicksand', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #4a2e3b;
+    }
+
+    /* Contenedor principal */
+    .birthday-card {
+      max-width: 1100px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 60px 60px 40px 40px;
+      box-shadow: 0 30px 50px rgba(199, 122, 142, 0.25), 0 0 0 2px rgba(255, 255, 255, 0.6) inset;
+      padding: 2.5rem 2.5rem 2rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Título principal */
+    .header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4.2rem;
+      color: #c14e6b;
+      text-shadow: 4px 4px 0 #ffd9e2, 8px 8px 15px rgba(193, 78, 107, 0.15);
+      line-height: 1.2;
+      letter-spacing: 2px;
+    }
+
+    .header p {
+      font-size: 1.3rem;
+      color: #ac6f7f;
+      font-weight: 600;
+      margin-top: -0.5rem;
+      letter-spacing: 1px;
+    }
+
+    /* Navegación tipo ul/li */
+    .nav {
+      display: flex;
+      justify-content: center;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      background: rgba(255, 245, 248, 0.7);
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      box-shadow: 0 8px 18px #f0c8d2, 0 0 0 2px #fff inset;
+    }
+
+    .nav li {
+      list-style: none;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #974b60;
+      padding: 0.5rem 1.4rem;
+      border-radius: 40px;
+      background: transparent;
+      transition: 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .nav a i {
+      font-size: 1rem;
+    }
+
+    .nav a:hover {
+      background: #ffd9e2;
+      color: #802a43;
+      transform: translateY(-3px);
+    }
+
+    /* Secciones */
+    section {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 40px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(241, 187, 200, 0.3), 0 0 0 1px #ffffffaa inset;
+      transition: 0.3s;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #a13e58;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 3px dashed #ffb7c9;
+      padding-bottom: 0.6rem;
+    }
+
+    .section-title i {
+      color: #d46b88;
+      font-size: 1.8rem;
+    }
+
+    /* HOME: imágenes y frases bonitas */
+    .home-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .home-item {
+      flex: 1 1 160px;
+      background: #fff2f5;
+      border-radius: 32px;
+      padding: 1.3rem 0.8rem;
+      text-align: center;
+      box-shadow: 0 10px 15px #ecc2ce;
+      transition: 0.2s;
+      border: 2px solid #ffe0e8;
+    }
+
+    .home-item:hover {
+      transform: scale(1.02);
+      background: #ffeef2;
+      box-shadow: 0 15px 25px #e7b7c4;
+    }
+
+    .home-item i {
+      font-size: 2.7rem;
+      color: #d45e7c;
+      margin-bottom: 10px;
+    }
+
+    .home-item p {
+      font-weight: 600;
+      color: #75384b;
+      font-size: 1.05rem;
+    }
+
+    /* Comentarios (owner & mensajes) */
+    .comment-area {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .input-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .input-group input {
+      flex: 2 1 200px;
+      padding: 1rem 1.3rem;
+      border: none;
+      border-radius: 60px;
+      background: #fff8fa;
+      box-shadow: 0 4px 10px #f0cad4 inset, 0 2px 8px #e7bbc7;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 600;
+      color: #4f2c37;
+      outline: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .input-group input:focus {
+      outline: 2px solid #f7a9be;
+      background: #ffffff;
+    }
+
+    .input-group button {
+      background: #e0839b;
+      border: none;
+      border-radius: 60px;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 10px 15px #d99aa9;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      border: 2px solid #ffdae3;
+    }
+
+    .input-group button:hover {
+      background: #c95f7c;
+      transform: scale(1.02);
+      box-shadow: 0 12px 20px #c27a8e;
+    }
+
+    .comment-list {
+      margin-top: 1.2rem;
+      max-height: 200px;
+      overflow-y: auto;
+      padding-right: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .comment-item {
+      background: #ffecf0;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      color: #5c2e3c;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 6px #f0c2ce;
+      border-left: 10px solid #dc8ba2;
+    }
+
+    .comment-item i {
+      color: #b1506b;
+      font-size: 1.2rem;
+    }
+
+    /* Mensajes Jheikat */
+    .jheikat-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+      justify-content: center;
+    }
+
+    .jheikat-card {
+      background: #fff5f8;
+      border-radius: 30px;
+      padding: 1.3rem 1.8rem;
+      flex: 1 1 200px;
+      box-shadow: 0 10px 15px #ebc2cf, 0 0 0 2px white;
+      border: 2px dashed #efb6c8;
+      font-style: italic;
+      font-weight: 600;
+      color: #833f55;
+      font-size: 1.1rem;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .jheikat-card i {
+      color: #d66a89;
+      font-size: 1.6rem;
+    }
+
+    .jheikat-card:hover {
+      background: #ffeef4;
+      transform: rotate(0.5deg);
+    }
+
+    /* Footer */
+    .footer-note {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #b18493;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    /* Estilo especial para dueño */
+    .owner-badge {
+      background: #ffd0dc;
+      color: #a1304e;
+      border-radius: 30px;
+      padding: 0.3rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-left: 8px;
+      display: inline-block;
+      border: 2px solid white;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .birthday-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .header h1 {
+        font-size: 3rem;
+      }
+      .nav ul {
+        gap: 0.3rem;
+        padding: 0.4rem 0.6rem;
+      }
+      .nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="birthday-card">
+    <!-- Cabecera -->
+    <div class="header">
+      <h1>¡Feliz Cumpleaños!</h1>
+      <p><i class="fas fa-heart" style="color: #d45e7c;"></i> Para mi querida amiga <i class="fas fa-heart" style="color: #d45e7c;"></i></p>
+    </div>
+
+    <!-- Navegación con ul / li (Home, Comentarios, Mensajes) -->
+    <nav class="nav">
+      <ul>
+        <li><a href="#home"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#comentarios"><i class="fas fa-comment-dots"></i> Comentarios</a></li>
+        <li><a href="#jheikat"><i class="fas fa-envelope-open-text"></i> Jheikat</a></li>
+      </ul>
+    </nav>
+
+    <!-- Sección HOME: cosas bonitas, destellos, magia -->
+    <section id="home">
+      <div class="section-title">
+        <i class="fas fa-star"></i> Maravillas para ti
+      </div>
+      <div class="home-gallery">
+        <div class="home-item">
+          <i class="fas fa-birthday-cake"></i>
+          <p>Un deseo dulce</p>
+        </div>
+        <div class="home-item">
+          <i class="fas fa-cloud-moon"></i>
+          <p>Noches de ensueño</p>
+        </div>
+        <div class="home-item">
+          <i class="fas fa-feather-alt"></i>
+          <p>Palabras que abrazan</p>
+        </div>
+        <div class="home-item">
+          <i class="fas fa-sun"></i>
+          <p>Días radiantes</p>
+        </div>
+        <div class="home-item">
+          <i class="fas fa-gem"></i>
+          <p>Eres única</p>
+        </div>
+        <div class="home-item">
+          <i class="fas fa-music"></i>
+          <p>Melodías de alegría</p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: 1.5rem; font-weight: 600; color: #a1566d; font-size: 1.15rem;">
+        ✨ Hoy celebramos la persona tan especial que eres. ¡Brillas más que nunca! ✨
+      </p>
+    </section>
+
+    <!-- Sección COMENTARIOS: se escribe el nombre y se guarda, aparece para todos -->
+    <section id="comentarios">
+      <div class="section-title">
+        <i class="fas fa-pen-fancy"></i> Comentarios bonitos
+      </div>
+      <div class="comment-area">
+        <div class="input-group">
+          <input type="text" id="nameInput" placeholder="Escribe tu nombre..." maxlength="40">
+          <button id="addCommentBtn"><i class="fas fa-paper-plane"></i> Enviar</button>
+        </div>
+        <!-- Lista de comentarios guardados -->
+        <div class="comment-list" id="commentList">
+          <!-- Los comentarios se cargarán desde localStorage y JS -->
+        </div>
+        <p style="font-size: 0.9rem; color: #b16f82; margin-top: 6px;">
+          <i class="fas fa-info-circle"></i> Tu nombre quedará guardado. ¡Todos lo verán!
+        </p>
+      </div>
+    </section>
+
+    <!-- Sección JHEIKAT: mensajes hermosos (siempre visibles) -->
+    <section id="jheikat">
+      <div class="section-title">
+        <i class="fas fa-heart"></i> Mensajes Jheikat
+      </div>
+      <div class="jheikat-grid">
+        <div class="jheikat-card"><i class="fas fa-quote-left"></i> Eres la chispa que ilumina mis días.</div>
+        <div class="jheikat-card"><i class="fas fa-quote-left"></i> Tu amistad es un tesoro infinito.</div>
+        <div class="jheikat-card"><i class="fas fa-quote-left"></i> Que la vida te sonría siempre.</div>
+        <div class="jheikat-card"><i class="fas fa-quote-left"></i> Gracias por existir, amiga.</div>
+        <div class="jheikat-card"><i class="fas fa-quote-left"></i> Cada momento contigo es mágico.</div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      <i class="fas fa-crown" style="color: #d45e7c;"></i> Hecho con amor para la mejor amiga <i class="fas fa-crown" style="color: #d45e7c;"></i>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // ========== CONFIGURACIÓN ==========
+      const STORAGE_KEY = 'birthday_comments_v1';
+      // El nombre especial "زياد" (Ziyad) se mostrará como OWNER
+      const OWNER_NAME = 'زياد';   // Puedes cambiar el nombre aquí
+      
+      // Referencias DOM
+      const nameInput = document.getElementById('nameInput');
+      const addBtn = document.getElementById('addCommentBtn');
+      const commentList = document.getElementById('commentList');
+
+      // ========== FUNCIONES ==========
+      // Cargar comentarios desde localStorage
+      function loadComments() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          try {
+            return JSON.parse(stored);
+          } catch (e) {
+            console.warn('Error parsing comments');
+            return [];
+          }
+        }
+        return [];
+      }
+
+      // Guardar comentarios en localStorage
+      function saveComments(comments) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+      }
+
+      // Renderizar todos los comentarios en la lista
+      function renderComments() {
+        const comments = loadComments();
+        commentList.innerHTML = '';  // Limpiar
+
+        if (comments.length === 0) {
+          // Mensaje vacío opcional
+          commentList.innerHTML = `<div class="comment-item" style="opacity:0.6;"><i class="fas fa-comment"></i> Aún no hay comentarios. ¡Sé el primero!</div>`;
+          return;
+        }
+
+        comments.forEach(comment => {
+          const commentDiv = document.createElement('div');
+          commentDiv.className = 'comment-item';
+
+          // Icono según si es owner o no
+          const icon = document.createElement('i');
+          if (comment.isOwner) {
+            icon.className = 'fas fa-crown';
+            icon.style.color = '#b1506b';
+          } else {
+            icon.className = 'fas fa-user-circle';
+          }
+
+          // Texto del comentario: nombre + (owner badge si aplica)
+          const textSpan = document.createElement('span');
+          if (comment.isOwner) {
+            textSpan.innerHTML = `<strong>${comment.name}</strong> <span class="owner-badge"><i class="fas fa-star"></i> Owner</span>`;
+          } else {
+            textSpan.innerHTML = `<strong>${comment.name}</strong>`;
+          }
+
+          // Añadir frase bonita aleatoria (opcional, pero le da un toque)
+          const frase = document.createElement('span');
+          frase.style.fontWeight = '400';
+          frase.style.marginLeft = '8px';
+          frase.style.fontStyle = 'italic';
+          frase.style.color = '#a56376';
+          // Frases variadas (solo para decorar el comentario)
+          const frases = [
+            '¡Qué lindo!', '¡Feliz día!', 'Eres increíble ✨', 'Un abrazo enorme 🤗', 
+            '¡Brillas!', 'Con cariño 💖', '¡Eres la mejor!', 'Muy especial 🎂'
+          ];
+          const randomFrase = frases[Math.floor(Math.random() * frases.length)];
+          frase.textContent = `— ${randomFrase}`;
+
+          commentDiv.appendChild(icon);
+          commentDiv.appendChild(textSpan);
+          commentDiv.appendChild(frase);
+          commentList.appendChild(commentDiv);
+        });
+      }
+
+      // Agregar nuevo comentario (nombre)
+      function addComment() {
+        const rawName = nameInput.value.trim();
+        if (rawName === '') {
+          alert('Por favor, escribe tu nombre bonito ✨');
+          return;
+        }
+
+        // Comprobar si el nombre es igual a "زياد" (Ziyad) o contiene "زياد"
+        // Según lo solicitado: "ولو الاسم زياد اكتب owner"
+        const isOwner = rawName === OWNER_NAME || rawName.includes(OWNER_NAME);
+
+        // Cargar comentarios actuales
+        const comments = loadComments();
+
+        // Crear nuevo comentario
+        const newComment = {
+          name: rawName,
+          isOwner: isOwner,
+          timestamp: Date.now()  // opcional para orden
+        };
+
+        comments.push(newComment);
+        saveComments(comments);
+
+        // Limpiar input
+        nameInput.value = '';
+
+        // Volver a renderizar
+        renderComments();
+      }
+
+      // ========== INICIALIZACIÓN ==========
+      // Renderizar al cargar la página
+      renderComments();
+
+      // Evento click en botón
+      addBtn.addEventListener('click', addComment);
+
+      // Evento Enter en el input
+      nameInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          addComment();
+        }
+      });
+
+      // Opcional: si quieres que los comentarios de prueba aparezcan inicialmente,
+      // puedes precargar algunos si no hay nada en localStorage.
+      // (No añado comentarios de prueba para que el usuario los cree)
+      // Pero para que se vea más bonito, si no hay nada, ya se muestra un mensaje.
+      
+      // Pequeño detalle: si no hay comentarios, añado uno de bienvenida (opcional)
+      // para que no esté vacío, pero respetando que el usuario pueda añadir.
+      // Pero mejor lo dejamos vacío, el mensaje "Aún no hay comentarios" está bien.
+      // Aunque si quieres que se vea más lindo, descomenta las siguientes líneas:
+      /*
+      if (loadComments().length === 0) {
+        const initialComments = [
+          { name: 'María', isOwner: false },
+          { name: 'Lucía', isOwner: false },
+        ];
+        saveComments(initialComments);
+        renderComments();
+      }
+      */
+    })();
+  </script>
+</body>
+</html>
